@@ -26,7 +26,7 @@ export default {
     };
   },
   async asyncData({ $content }) {
-    const posts = await $content("articles").fetch()
+    const posts = await $content("articles").sortBy('order').fetch()
     const pages = await $content("pages").fetch()
 
     return {
