@@ -46,7 +46,12 @@ export default {
     margin: 1rem 0 2rem;
     padding-bottom: 1rem;
     &__title {
-      font-size: $font-size-display-3;
+      font-size: $font-size-h4;
+      color:$medium;
+    }
+    &__body {
+      margin: 1rem 1.5rem;
+      font-size: $font-size-lg; 
     }
   }
 
@@ -54,6 +59,7 @@ export default {
     margin: 1.5rem .5rem;
     &__title {
       font-size: $font-size-display-1;
+      line-height: 4rem;
     }
   }
 

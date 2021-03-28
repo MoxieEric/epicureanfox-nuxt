@@ -1,5 +1,5 @@
 <template>
-    <img :src='"/images/fpo-0"+random_number+".jpg"' :alt="image.class || ''" :class="image.class || classes ">
+    <img :src='"/images/fpo-0"+random_number+".jpg"' :alt="image.alt || ''" :class="image.class || classes ">
 </template>
 
 <script>
