@@ -1,28 +1,22 @@
 <template>
   <div class="container mx-auto">
-    <section class="text-center mx-2 my-6">
-      <h1 class="text-3xl">
+    <section class="hero">
+      <h1 class="hero__title">
         A tagline or something
       </h1>
-      <h2 class="text-lg">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean scelerisque ultricies pulvinar.</h2>
+      <p class="hero__body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean scelerisque ultricies pulvinar.</p>
     </section>
 
-    <section class="text-center my-4">
-      <div>
-        <h2 class="text-3xl mt-4 mb-2">Articles</h2>
-        
-        <div v-for="post of posts" :key="post.slug" class="">
-            <Card :post="post"/>
-        </div>
+    <section class="post-grid">
+      <h2 class="post-grid__title display-3 mt-4 mb-2 px-4">Articles</h2>
+      <div class="grid grid-cols-1 lg:grid-cols-3">
+        <Card :post="post" v-for="post of posts" :key="post.slug" />
       </div>
     </section>
+
     <div class="text-center my-8">
       <h2>Pages</h2>
-        <ul>
-          <li v-for="page of pages" :key="page.slug">
-            <NuxtLink :to="page.slug">{{ page.title }}</NuxtLink>
-          </li>
-        </ul>
+        <Card :post="post" v-for="post of pages" :key="post.slug" />
     </div>
 
   </div>
@@ -48,6 +42,19 @@ export default {
 </script>
 
 <style lang="scss">
+  .post-grid {
+    margin: 1rem 0 2rem;
+    padding-bottom: 1rem;
+    &__title {
+      font-size: $font-size-display-3;
+    }
+  }
 
+  .hero {
+    margin: 1.5rem .5rem;
+    &__title {
+      font-size: $font-size-display-1;
+    }
+  }
 
 </style>

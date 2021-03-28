@@ -25,7 +25,9 @@
         width: 100%;
         height: 3rem;
         color: #000;
-
+        @media (min-width:768px){
+            padding: 0 3rem;
+        }
         &__logo {
             font-family: $heading-font;
             font-size: $font-size-h4;

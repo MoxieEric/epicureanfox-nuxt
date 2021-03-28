@@ -7,7 +7,7 @@
       <h2 class="text-lg">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean scelerisque ultricies pulvinar.</h2>
     </section>
 
-    <section class="text-center my-4">
+    <section class="my-4">
       <div>
         <div v-for="post of posts" :key="post.slug" class="">
             <Card :post="post"/>

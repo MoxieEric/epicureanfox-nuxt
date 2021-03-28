@@ -5,7 +5,7 @@
   </div>
 </template>
 
-<style>
+<style lang="scss">
 html {
   font-family:
     'Lato',
@@ -25,6 +25,13 @@ html {
   box-sizing: border-box;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
 h1,
 .h1,
 h2,
@@ -34,13 +41,34 @@ h3,
 h4,
 .h4 {
   font-family: 'Cormorant Garamond', serif;
+  font-weight:700;
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
+h1,.h1{
+  font-size: $font-size-h1;
+}
+h2,.h2{
+  font-size: $font-size-h2;
+}
+h3,.h3{
+  font-size: $font-size-h3;
+}
+h4,.h4{
+  font-size: $font-size-h4;
+}
+h5,.h5{
+  font-size: $font-size-h5;
+}
+
+.display-1 {
+  font-size: $font-size-display-1;
+}
+.display-2 {
+  font-size: $font-size-display-2;
+  font-weight:700;
+}
+.display-3 {
+  font-size: $font-size-display-3;
 }
 
 </style>
