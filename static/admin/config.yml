@@ -27,6 +27,8 @@ collections:
       - { label: 'Description', name: 'description', widget: 'string' }
       - { name: image, label: Feature Image, widget: image }
       - { label: 'Body', name: 'body', widget: 'markdown' }
+      - { label: 'Order', name: 'order', widget: 'number' }
+      - { label: 'Category', name: 'category', widget: 'relation', collection: 'categories', search_fields: ["title"], value_field: "title", display_fields: ["img - {{image}}"] }
   - name: 'pages'
     label: 'Pages'
     folder: 'content/pages'
@@ -39,4 +41,18 @@ collections:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
       - { label: 'Description', name: 'description', widget: 'string' }
+      - { name: image, label: Feature Image, widget: image }
       - { label: 'Body', name: 'body', widget: 'markdown' }
+  - name: 'categories'
+    label: 'Categories'
+    folder: 'content/categories'
+    format: 'frontmatter'
+    create: true
+    slug: '{{slug}}'
+    editor:
+      preview: false
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Description', name: 'description', widget: 'string' }
+      - { name: image, label: Feature Image, widget: image }
+      - { label: 'Order', name: 'order', widget: 'number' }
