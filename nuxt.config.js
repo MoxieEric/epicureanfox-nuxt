@@ -82,15 +82,15 @@ export default {
   build: {
   },
   generate: {
-    routes: function() {
-      const fs = require('fs');
-      const path = require('path');
-      return fs.readdirSync('./content/pages').map(file => {
-        return {
-          route: `/${path.parse(file).name}`, // Return the slug
-          payload: require(`./content/pages/${file}`),
-        };
-      });
+    // routes: function() {
+    //   const fs = require('fs');
+    //   const path = require('path');
+    //   return fs.readdirSync('./content/pages').map(file => {
+    //     return {
+    //       route: `/${path.parse(file).name}`, // Return the slug
+    //       payload: require(`./content/pages/${file}`),
+    //     };
+    //   });
     },
   }
 
