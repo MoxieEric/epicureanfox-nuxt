@@ -80,5 +80,18 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+  },
+  generate: {
+    routes: function() {
+      const fs = require('fs');
+      const path = require('path');
+      return fs.readdirSync('./content/pages').map(file => {
+        return {
+          route: `/${path.parse(file).name}`, // Return the slug
+          payload: require(`./content/pages/${file}`),
+        };
+      });
+    },
   }
+
 }
