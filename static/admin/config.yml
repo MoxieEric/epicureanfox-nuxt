@@ -8,7 +8,7 @@ public_folder: "/uploads"
 media_library: 
   name: uploadcare
   config:
-    publickey: 7cdc2ef7c0ec6bbbdb31
+    publickey: '7cdc2ef7c0ec6bbbdb31'
   settings:
     autoFilename: true
     defaultOperations: '/scale_crop/768x768/smart/'
