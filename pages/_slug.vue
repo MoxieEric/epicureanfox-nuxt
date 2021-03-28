@@ -1,6 +1,7 @@
 <template>
-  <div>
-    <h2>{{ post.title }}</h2>
+  <div class="article container mx-4 my-6">
+    <h1>{{ post.title }}</h1>
+    <h2>{{post.description}}</h2>
     <nuxt-content :document="post" />
   </div>
 </template>
