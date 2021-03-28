@@ -5,23 +5,19 @@
       <h1 class="title">
         epicureanfox
       </h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
+      <div>
+        <h2>Articles</h2>
+        <ul>
+          <li v-for="post of posts" :key="post.slug">
+            <NuxtLink :to="'/articles/'+post.slug">{{ post.title }}</NuxtLink>
+          </li>
+        </ul>
+        <h2>Pages</h2>
+        <ul>
+          <li v-for="page of pages" :key="page.slug">
+            <NuxtLink :to="page.slug">{{ page.title }}</NuxtLink>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
@@ -31,7 +27,16 @@
 export default {
   head() {
     return {
-      script: [{ src: 'https://identity.netlify.com/v1/netlify-identity-widget.js' }],
+      script: [{ src: 'https://identity.netlify.com/v1/netlify-identity-widget.js' }]
+    };
+  },
+  async asyncData({ $content }) {
+    const posts = await $content("articles").fetch()
+    const pages = await $content("pages").fetch()
+
+    return {
+      posts,
+      pages
     };
   },
 };
