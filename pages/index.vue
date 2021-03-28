@@ -1,25 +1,39 @@
 <template>
-  <div class="container">
-    <div>
-      <Logo />
-      <h1 class="title">
-        epicureanfox
+  <div class="container mx-auto">
+    <section class="text-center mx-2 my-6">
+      <h1 class="text-3xl">
+        A tagline or something
       </h1>
+      <h2 class="text-lg">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean scelerisque ultricies pulvinar.</h2>
+    </section>
+
+    <section class="text-center my-4">
       <div>
-        <h2>Articles</h2>
-        <ul>
-          <li v-for="post of posts" :key="post.slug">
-            <NuxtLink :to="'/articles/'+post.slug">{{ post.title }}</NuxtLink>
-          </li>
-        </ul>
-        <h2>Pages</h2>
+        <h2 class="text-3xl mt-4 mb-2">Articles</h2>
+        <div v-for="post of posts" :key="post.slug" class="card">
+            <div class="card__image">
+              <img src="/img/fpo.jpg" alt="" class="">
+            </div>
+            <div class="card__header">
+              <NuxtLink :to="'/articles/'+post.slug">{{ post.title }}</NuxtLink>
+            </div>
+            
+            <div class="card__body">
+              <p>{{post.description}}</p>
+            </div>
+            
+        </div>
+      </div>
+    </section>
+    <div class="text-center my-8">
+      <h2>Pages</h2>
         <ul>
           <li v-for="page of pages" :key="page.slug">
             <NuxtLink :to="page.slug">{{ page.title }}</NuxtLink>
           </li>
         </ul>
-      </div>
     </div>
+
   </div>
 </template>
 
@@ -42,43 +56,16 @@ export default {
 };
 </script>
 
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+<style lang="scss">
+.card {
+  border: 2px solid $light;
+  padding: 1rem;
+  margin: 1rem;
+  &__header {
+    font-size: $font-size-h5;
+    font-family: $heading-font;
+    font-weight: 600;
+  }
 }
 
-.title {
-  font-family:
-    'Quicksand',
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
 </style>
