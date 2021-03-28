@@ -13,10 +13,18 @@
   },
   "dependencies": {
     "@nuxt/content": "^1.14.0",
+    "@nuxtjs/style-resources": "^1.0.0",
+    "@nuxtjs/tailwindcss": "^4.0.2",
+    "@tailwindcss/postcss7-compat": "^2.0.4",
+    "autoprefixer": "^9",
     "bootstrap": "^4.6.0",
     "bootstrap-vue": "^2.21.2",
     "core-js": "^3.9.1",
-    "nuxt": "^2.15.3"
+    "node-sass": "^5.0.0",
+    "nuxt": "^2.15.3",
+    "postcss": "^7",
+    "sass-loader": "^10.1.1",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^6.0.0",
