@@ -2,29 +2,18 @@
   <div class="container mx-auto">
     <section class="text-center mx-2 my-6">
       <h1 class="text-3xl">
-        A tagline or something
+        Recipes &amp; Articles
       </h1>
       <h2 class="text-lg">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean scelerisque ultricies pulvinar.</h2>
     </section>
 
     <section class="text-center my-4">
       <div>
-        <h2 class="text-3xl mt-4 mb-2">Articles</h2>
-        
         <div v-for="post of posts" :key="post.slug" class="">
             <Card :post="post"/>
         </div>
       </div>
     </section>
-    <div class="text-center my-8">
-      <h2>Pages</h2>
-        <ul>
-          <li v-for="page of pages" :key="page.slug">
-            <NuxtLink :to="page.slug">{{ page.title }}</NuxtLink>
-          </li>
-        </ul>
-    </div>
-
   </div>
 </template>
 
@@ -32,7 +21,6 @@
 export default {
   head() {
     return {
-      script: [{ src: 'https://identity.netlify.com/v1/netlify-identity-widget.js' }]
     };
   },
   async asyncData({ $content }) {
@@ -40,8 +28,7 @@ export default {
     const pages = await $content("pages").fetch()
 
     return {
-      posts,
-      pages
+      posts
     };
   },
 };
