@@ -3,8 +3,6 @@
    
     <PageHeader :post="category_post" />
 
-<pre>{{posts}}</pre>
-
     <section class="post-grid">
       <div class="grid grid-cols-1 lg:grid-cols-2">
         <Card :post="post" v-for="post of posts" :key="post.slug" />

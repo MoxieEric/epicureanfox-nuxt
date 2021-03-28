@@ -24,7 +24,7 @@
     
     <div class="article__footer">
       <div class="text-center">
-        <a href="/articles/" title="Back to all Recipes" class="button button--text"> <Icon :icon="'arrow-left'"/> All Recipes </a>
+        <a :href="'/articles/'+(post.category ? 'category/'+post.category.toLowerCase() : '')" title="Explore all Recipes" class="button button--text"> More {{ post.category }} Recipes <Icon :icon="'arrow-right'"/> </a>
       </div>
     </div>
   
