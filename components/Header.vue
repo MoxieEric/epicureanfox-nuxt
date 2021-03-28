@@ -1,7 +1,7 @@
 <template>
     <nav class="header" id="header" >
         <div class="header__logo">
-            <a href="/" title="Home" class="">Epicurean Fox</a>
+            <a href="/" title="Homepage" class="">Epicurean Fox</a>
         </div>
         <div class="header__nav">
             <div class="header__nav-links">
