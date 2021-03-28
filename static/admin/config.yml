@@ -28,7 +28,7 @@ collections:
       - { name: image, label: Feature Image, widget: image, required: false }
       - { label: 'Body', name: 'body', widget: 'markdown' }
       - { label: 'Order', name: 'order', widget: 'number', default: 1 }
-      - { label: 'Category', name: 'category', widget: 'relation', collection: 'categories', search_fields: ["title"], value_field: "slug", display_fields: ["{{title}}"] }
+      - { label: 'Category', name: 'category', widget: 'relation', collection: 'categories', search_fields: ["title"], value_field: "slug", display_fields: ["{{title}}"], required: false }
   - name: 'pages'
     label: 'Pages'
     folder: 'content/pages'
