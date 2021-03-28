@@ -17,7 +17,7 @@
 <style lang="scss">
     #footer {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         align-items: center;
         padding: 1rem;
         width: 100%;

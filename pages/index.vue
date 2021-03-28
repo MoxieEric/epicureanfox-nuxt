@@ -5,7 +5,7 @@
 
     <section class="post-grid">
       <h2 class="post-grid__title">Latest Recipes</h2>
-      <div class="grid grid-cols-1 lg:grid-cols-3">
+      <div class="grid grid-cols-1 lg:grid-cols-2">
         <Card :post="post" v-for="post of posts" :key="post.slug" />
       </div>
     </section>

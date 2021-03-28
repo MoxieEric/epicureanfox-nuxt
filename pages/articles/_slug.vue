@@ -15,6 +15,7 @@
         </span>
       </div>
       <div class="article__image">
+        <!-- <pre>{{post}}</pre> -->
         <ImageTag :image="post.image || false" :class="''"/>
       </div>
     </header>
