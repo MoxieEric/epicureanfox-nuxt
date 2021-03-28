@@ -68,7 +68,7 @@ export default {
     let category_post;
     try {
       category_post = await $content("categories", params.slug).fetch();
-      posts = await $content("articles").where({category: params.slug}).fetch();
+      posts = await $content("articles").where({category: category_post.title}).fetch();
       // OR const article = await $content(`articles/${params.slug}`).fetch()
     } catch (e) {
       error({ message: "Category not found" });
