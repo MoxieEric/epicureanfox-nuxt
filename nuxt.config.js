@@ -4,6 +4,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
+    titleTemplate: '%s | Epicurean Fox',
     title: 'Epicurean Fox',
     htmlAttrs: {
       lang: 'en'
@@ -11,7 +12,32 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1, shrink-to-fit=no' },
-      { hid: 'description', name: 'description', content: '' }
+      { hid: 'description', name: 'description', content: '' },
+      { 
+        hid: 'apple-mobile-web-app-title',
+        name: 'apple-mobile-web-app-title', 
+        skip: true,
+      },
+      {
+        hid: `description`,
+        name: 'description',
+        content: 'Recipes from Klaus\' kitchen outside Jamestown, CO'
+      },
+      {
+        hid: `og:description`,
+        property: 'og:description',
+        content: 'Recipes from Klaus\' kitchen outside Jamestown, CO'
+      },
+      {
+        hid: `og:site_name`,
+        property: 'og:site_name',
+        content: 'Epicurean Fox'
+      },
+      {
+        hid: 'mobile-web-app-capable',
+        property: 'mobile-web-app-capable',
+        skip: true
+      }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
