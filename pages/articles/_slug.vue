@@ -101,6 +101,11 @@ export default {
       title: post.title,
       meta: [
         {
+					hid: "og:title",
+					property: "og:title",
+					content: post.title
+				},
+        {
 					hid: "og:type",
 					property: "og:type",
 					content: "recipe"
@@ -115,6 +120,11 @@ export default {
           property: 'og:description',
           content: post.description || false
         },
+        {
+					hid: "og:image",
+					property: "og:image",
+					content: post.image || false
+				},
       ],
       bodyAttrs: {
         class: 'template-article'
