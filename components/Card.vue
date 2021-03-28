@@ -39,5 +39,10 @@ export default {
             padding-bottom: 2rem;
             border-bottom: 1.5px solid $light;
         }
+        &__image {
+            display: inline-block;
+            width: 100%;
+            margin-bottom: .25rem;
+        }
     }
 </style>

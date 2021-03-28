@@ -1,19 +1,19 @@
 <template>
-    <div class="header" id="header">
+    <nav class="header" id="header" >
         <div class="header__logo">
             <a href="/" title="Home" class="">Epicurean Fox</a>
         </div>
         <div class="header__nav">
             <div class="header__nav-links">
                 <div class="header__nav-item">
-                    <a href="/articles/" class="">Articles</a>
+                    <a href="/articles/" class="">Recipes</a>
                 </div>
                 <div class="header__nav-item">
                     <a href="/about/" class="">About</a>
                 </div>
             </div>
         </div>
-    </div>
+    </nav>
 </template>
 
 <style lang="scss">
@@ -25,12 +25,14 @@
         width: 100%;
         height: 3rem;
         color: #000;
+        background: $pink;
         @media (min-width:768px){
             padding: 0 3rem;
         }
         &__logo {
             font-family: $heading-font;
             font-size: $font-size-h4;
+            font-weight: 700;
             a {
                 color: $black;
             }
@@ -47,7 +49,7 @@
             margin: .125rem;
             font-size: $font-size-h5;
             a {
-                color: $primary;
+                color: $dark;
             }
         }
 

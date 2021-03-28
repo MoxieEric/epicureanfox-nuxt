@@ -1,7 +1,7 @@
 <template>
 <div class="container px-4">
   <article class="article">
-    <div class="article__header">
+    <header class="article__header">
       <h1 class="article__title">{{ post.title }}</h1>
       <p class="article__subheader" v-if="post.description">{{ post.description }}</p>
       <div class="article__meta meta">
@@ -17,15 +17,24 @@
       <div class="article__image">
         <ImageTag :image="post.image || false" :class="''"/>
       </div>
-    </div>
+    </header>
    
     <nuxt-content :document="post" class="rte article__body" />
+    
+    <div class="article__footer">
+      <div class="text-center">
+        <a href="/articles/" title="Back to all Recipes" class="button button--text"> <Icon :icon="'arrow-left'"/> All Recipes </a>
+      </div>
+    </div>
+  
+
   </article>
 </div>
 </template>
 
 <style lang="scss">
   .article {
+    padding: .125rem 0 2rem;
     &__header {
       padding: 1rem 0;
     }
@@ -59,9 +68,13 @@
     }
     &__image {
       width: 100%;
-      margin: 1rem 0 2rem;
+      margin: 1rem 0 .5rem;
     }
-
+  &__footer {
+    border-top: 1px solid $medium;
+    padding: 1rem 0 0;
+    margin: 2rem 0 1rem;
+  }
   }
 </style>
 

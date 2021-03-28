@@ -75,3 +75,81 @@ h5,.h5{
     display: inline-block;
     min-width: 1rem;
 }
+
+// Lists
+ol,ul {
+    list-style-position: inside;
+    margin: 1rem 0;
+    li {
+        margin: .5rem 0 .25rem .25rem;
+    }
+}
+ul {
+    list-style-type: disc;
+}
+ol {
+    list-style-type: decimal;
+}
+
+
+// Buttons
+
+.button {
+    padding: .5rem 1rem;
+    text-align: center;
+    font-family: $body-font;
+    font-size: $font-size-lg;
+
+    &--text {
+        background: transparent;
+        color: $black;
+        &:hover {
+            color: $primary;
+        }
+    }
+
+    &--dark {
+        background: $dark;
+        color: $white;
+        &:hover {
+            background: $black;
+        }
+    }
+
+    &--outline {
+        background: transparent;
+        color: $dark;
+        border: 1px solid $dark;
+        &:hover {
+            background: $dark;
+            color: $white;
+        }
+    }
+
+    .icon {
+        //width: 20px;
+    }
+}
+
+
+//
+// COMPONENTs
+// 
+.page-header + .post-grid {
+    margin-top: 0;
+}
+.post-grid {
+    margin: 1rem 0 2rem;
+    padding-bottom: 2rem;
+    &__title {
+      font-size: $font-size-h4;
+      color:$medium;
+      padding: 0 1.25rem;
+      margin-top: 1rem;
+      // h2 mt-4 mb-2 px-5
+    }
+    &__body {
+      margin: 1rem 1.5rem;
+      font-size: $font-size-lg; 
+    }
+  }
