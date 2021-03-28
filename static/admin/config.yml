@@ -9,6 +9,9 @@ media_library:
   name: uploadcare
   config:
     publickey: 7cdc2ef7c0ec6bbbdb31
+  settings:
+    autoFilename: true
+    defaultOperations: '/scale_crop/768x768/smart/'
 
 collections:
   - name: 'articles'
@@ -22,6 +25,7 @@ collections:
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Description', name: 'description', widget: 'string' }
+      - { name: image, label: Feature Image, widget: image }
       - { label: 'Body', name: 'body', widget: 'markdown' }
   - name: 'pages'
     label: 'Pages'
