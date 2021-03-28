@@ -1,10 +1,11 @@
 <template>
     <div class="card">
-        <div class="card__image">
-            <img src="/img/fpo.jpg" alt="" class="">
-        </div>
+        <!-- <pre>{{post}}</pre> -->
         <div class="card__header">
-            <NuxtLink :to="'/articles/'+post.slug">{{ post.title }}</NuxtLink>
+            <NuxtLink :to="post.path">
+                <ImageTag :image="post.image || false" :class="'card__image'"/>
+                <h3 class="card__title">{{ post.title }}</h3>
+            </NuxtLink>
         </div>
         
         <div class="card__body">
@@ -28,13 +29,15 @@ export default {
 
 <style lang="scss">
     .card {
-        border: 2px solid $light;
         padding: 1rem;
-        margin: 1rem;
-        &__header {
-            font-size: $font-size-h5;
+        &__title {
+            font-size: $font-size-h3;
             font-family: $heading-font;
             font-weight: 600;
+        }
+        &__body {
+            padding-bottom: 2rem;
+            border-bottom: 1.5px solid $light;
         }
     }
 </style>
