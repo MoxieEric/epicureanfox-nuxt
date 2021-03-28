@@ -27,6 +27,7 @@ export default {
     };
   },
   head() {
+    let post = this.post;
     return {
       title: post.title,
       meta: [
