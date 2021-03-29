@@ -6,7 +6,7 @@
         <div class="footer__nav">
             <div class="footer__nav-links">
                 <div class="footer__nav-item">
-                    <a href="https://instagram.com/klausnowels" class="" target=_blank>Instagram</a>
+                    <a href="https://instagram.com/klausnowels" class="" target="_blank" rel="noopener">Instagram</a>
                 </div>
                 
             </div>
