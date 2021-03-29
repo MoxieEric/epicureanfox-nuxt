@@ -56,9 +56,9 @@
     <div class="post-grid post-grid--list">
       <CardHorizontal :post="post" v-for="post of taxonomy.posts" :key="post.slug" />
     </div>
-    <div class="link-list">
+    <div class="post-grid">
       <h3>Other Categories</h3>
-      <div class="grid grid-cols-2">
+      <div class="grid grid-cols-2 ">
         <Card :post="category" v-for="category of categories" :key="category.slug" />
       </div>
     </div>

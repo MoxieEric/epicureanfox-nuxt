@@ -3,7 +3,7 @@
         <!-- <pre>{{post}}</pre> -->
         <div class="card__header">
             <NuxtLink :to="post.base_url + post.slug">
-                <ImageTag :image="post.image || false" :class="'card__image'"/>
+                <ImageTag :image="post.image || false" :class="'card__image'" :alt="'Photo of '+post.title"/>
                 <h3 class="card__title">{{ post.title }}</h3>
             </NuxtLink>
         </div>

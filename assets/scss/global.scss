@@ -183,7 +183,14 @@ ol {
                 }
             }
         }
-    }
+        &.grid-cols-2 {
+          @media (min-width: 768px) {
+              .card__body {
+                  border-bottom: none;
+              }
+          }
+        }
+      }
   }
 
 .breadcrubms {

@@ -1,7 +1,11 @@
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
-
+  content: {
+    markdown: {
+      remarkAutolinkHeadings: false
+    }
+  },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     titleTemplate: '%s | Epicurean Fox',

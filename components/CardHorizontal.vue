@@ -3,7 +3,7 @@
         <!-- <pre>{{post}}</pre> -->
         <div class="card__header">
             <NuxtLink :to="post.path.includes('article') ? post.path : post.slug">
-                <ImageTag :image="post.image || false" :class="'card__image'"/>
+                <ImageTag :image="post.image || false" :class="'card__image'" :alt="'Photo of '+post.title"/>
             </NuxtLink>
         </div>
         <div class="card__body col-span-3">
