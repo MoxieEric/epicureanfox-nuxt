@@ -29,6 +29,7 @@ html {
   .container {
       margin: 0 auto;
       max-width: 768px;
+      min-height: 90vh;
   }
 
 //Typography
@@ -155,6 +156,9 @@ ol {
 .post-grid {
     margin: 1rem 0 2rem;
     padding-bottom: 2rem;
+    &--list {
+      padding: 0 0 2rem;
+    }
     &__title {
       font-size: $font-size-h4;
       color:$medium;
@@ -166,6 +170,11 @@ ol {
       margin: 1rem 1.5rem;
       font-size: $font-size-lg; 
     }
+    &__no-results {
+      font-size: $font-size-h3;
+      color: $medium;
+      padding: 2rem;
+    }
     .grid {
         &.lg\:grid-cols-2 {
             @media (min-width: 1023px) {
@@ -175,6 +184,33 @@ ol {
             }
         }
     }
-    
+  }
+
+.breadcrubms {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  &__item {
+    padding: .25rem .125rem;
+    &:after {
+      content:"/";
+    }
+    &:last-of-type{
+      &:after {
+        content: "";
+      }
+    }
+    span {
+      color: $medium;
+    }
+    a {
+      color: $black;
+      font-weight: 500;
+      span {
+        color: $black;
+      }
+    }
     
   }
+}

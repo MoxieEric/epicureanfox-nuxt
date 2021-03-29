@@ -5,17 +5,16 @@
       <h1 class="article__title">{{ post.title }}</h1>
       <p class="article__subheader" v-if="post.description">{{ post.description }}</p>
       <div class="article__meta meta">
-        <span class="meta__date">
+        <span class="meta__item">
           <Icon :icon="'calendar'" />
           6 days ago 
         </span>
-        <span class="meta__faves"> 
+        <span class="meta__item"> 
           <Icon :icon="'heart'" />
           17
         </span>
       </div>
       <div class="article__image">
-        <!-- <pre>{{post}}</pre> -->
         <ImageTag :image="post.image || false" :class="''"/>
       </div>
     </header>
@@ -23,13 +22,47 @@
     <nuxt-content :document="post" class="rte article__body" />
     
     <div class="article__footer">
-      <div class="text-center">
-        <a :href="'/articles/'+(post.category ? 'category/'+post.category.toLowerCase() : '')" title="Explore all Recipes" class="button button--text"> More {{ post.category }} Recipes <Icon :icon="'arrow-right'"/> </a>
+      <div class="article__meta meta">
+        <div class="meta__item">
+          <ol class="breadcrubms" itemscope itemtype="https://schema.org/BreadcrumbList">
+            <li class="breadcrubms__item" itemprop="itemListElement" itemscope
+          itemtype="https://schema.org/ListItem">
+              <a href="/articles/" itemprop="item">
+                <span itemprop="name">Recipes</span>
+                <meta itemprop="position" content="1" />
+              </a>
+            </li>
+            <li class="breadcrubms__item" itemprop="itemListElement" itemscope
+          itemtype="https://schema.org/ListItem">
+              <a :href="'/articles/category/'+taxonomy.slug" itemprop="item">
+                <span itemprop="name">{{taxonomy.title}}</span>
+                <meta itemprop="position" content="2" />
+              </a>
+            </li>
+            <li class="breadcrubms__item" itemprop="itemListElement" itemscope
+          itemtype="https://schema.org/ListItem">
+              <span itemprop="name">{{post.title}}</span>
+              <meta itemprop="position" content="3" />
+            </li>
+          </ol>
+          
+        </div>
       </div>
     </div>
-  
-
   </article>
+
+  <section class="more">
+    <PageHeader :post='{title: "More "+taxonomy.title + " recipes", subheader: "\<a href=\"/articles/category/"+taxonomy.slug+"\">View All</a>"}' />
+    <div class="post-grid post-grid--list">
+      <CardHorizontal :post="post" v-for="post of taxonomy.posts" :key="post.slug" />
+    </div>
+    <div class="link-list">
+      <h3>Other Categories</h3>
+      <div class="grid grid-cols-2">
+        <Card :post="category" v-for="category of categories" :key="category.slug" />
+      </div>
+    </div>
+  </section>
 </div>
 </template>
 
@@ -57,8 +90,7 @@
       display: flex;
       justify-content: space-between;
       .meta {
-        &__date,
-        &__faves {
+        &__item {
           display: flex;
           align-items: center;
           .icon {
@@ -71,11 +103,11 @@
       width: 100%;
       margin: 1rem 0 .5rem;
     }
-  &__footer {
-    border-top: 1px solid $medium;
-    padding: 1rem 0 0;
-    margin: 2rem 0 1rem;
-  }
+    &__footer {
+      //border-top: 1px solid $medium;
+      padding: 1rem 0 0;
+      margin: 2rem 0 1rem;
+    }
   }
 </style>
 
@@ -84,15 +116,23 @@
 export default {
   async asyncData({ $content, params, error }) {
     let post;
+    let taxonomy;
+    let categories;
     try {
       post = await $content("articles", params.slug).fetch();
-      // OR const article = await $content(`articles/${params.slug}`).fetch()
+      categories = await $content("categories").fetch();
+      taxonomy = await $content("categories", post.category.toLowerCase() ).fetch();
+      taxonomy.posts = await $content("articles")
+        .limit(3)
+        //.where({category: taxonomy.title, title: {$ne:post.title} })
+        .fetch();
     } catch (e) {
       error({ message: "Article not found" });
     }
-
     return {
-      post
+      post,
+      taxonomy,
+      categories
     };
   },
   head() {

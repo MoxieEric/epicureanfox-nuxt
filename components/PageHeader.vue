@@ -3,7 +3,7 @@
       <h1 class="page-header__title" v-if="post.title">
         {{post.title}}
       </h1>
-      <h2 class="page-header__subheader" v-if="post.subheader">{{post.subheader}}</h2>
+      <h2 class="page-header__subheader" v-if="post.subheader" v-html="post.subheader"></h2>
     </header>
 </template>
 

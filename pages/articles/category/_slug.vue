@@ -1,61 +1,30 @@
 <template>
-<div class="container px-4">
+  <div class="container px-4">
    
     <PageHeader :post="category_post" />
 
     <section class="post-grid">
       <div class="grid grid-cols-1 lg:grid-cols-2">
         <Card :post="post" v-for="post of posts" :key="post.slug" />
+        <div v-if="posts.length < 1">
+          <h2 class="post-grid__no-results">This category is empty.</h2>
+        </div>
       </div>
     </section>
-
-</div>
+    <section class="more">
+      <div class="link-list">
+        <h3>Other Categories</h3>
+        <div class="grid grid-cols-2">
+          <Card :post="category" v-for="category of categories" :key="category.slug" />
+        </div>
+      </div>
+    </section>
+  </div>
+  
 </template>
 
 <style lang="scss">
-  .article {
-    padding: .125rem 0 2rem;
-    &__header {
-      padding: 1rem 0;
-    }
-    &__title {
-      font-size: $font-size-display-3;
-    }
-    &__subheader {
-      font-size: $font-size-h5;
-      color: $medium;
-      margin: .5rem 0;
-      
-    }
-    &__meta {
-      border-top: 1px solid $light;
-      border-bottom: 1px solid $light;
-      padding: .75rem .25rem;
-      margin: 1rem 0;
-      color: $medium;
-      display: flex;
-      justify-content: space-between;
-      .meta {
-        &__date,
-        &__faves {
-          display: flex;
-          align-items: center;
-          .icon {
-            margin-right: .25rem;
-          }
-        }
-      }
-    }
-    &__image {
-      width: 100%;
-      margin: 1rem 0 .5rem;
-    }
-  &__footer {
-    border-top: 1px solid $medium;
-    padding: 1rem 0 0;
-    margin: 2rem 0 1rem;
-  }
-  }
+  
 </style>
 
 
@@ -64,8 +33,10 @@ export default {
   async asyncData({ $content, params, error }) {
     let posts;
     let category_post;
+    let categories;
     try {
       category_post = await $content("categories", params.slug).fetch();
+      categories = await $content("categories").fetch();
       posts = await $content("articles").where({category: category_post.title}).fetch();
       // OR const article = await $content(`articles/${params.slug}`).fetch()
     } catch (e) {
@@ -74,7 +45,8 @@ export default {
 
     return {
       category_post,
-      posts
+      posts,
+      categories
     };
   },
   head() {
