@@ -56,3 +56,30 @@
     }
     
 </style>
+
+<script>
+// import Vue from 'vue';
+
+// export default{
+//     data: function () {
+//         return {
+//             isFBReady: false
+//         }
+//     },
+//     mounted: function () {
+//         this.isFBReady = Vue.FB != undefined
+//         window.addEventListener('fb-sdk-ready', this.onFBReady)
+//     },
+//     beforeDestroy: function () {
+//         window.removeEventListener('fb-sdk-ready', this.onFBReady)
+//     },
+//     methods: {
+//         onFBReady() {
+//           this.isFBReady = true
+//         },
+//         login() {
+
+//         }
+//     }
+// }
+</script>

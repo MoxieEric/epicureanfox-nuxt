@@ -41,6 +41,11 @@ export default {
         hid: 'mobile-web-app-capable',
         property: 'mobile-web-app-capable',
         skip: true
+      },
+      {
+        hid: "fb-app-id",
+        property: 'fb:app_id',
+        content: '124911242996881'
       }
     ],
     link: [

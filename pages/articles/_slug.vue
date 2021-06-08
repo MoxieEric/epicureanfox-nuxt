@@ -7,12 +7,14 @@
       <div class="article__meta meta">
         <span class="meta__item">
           <Icon :icon="'calendar'" />
-          6 days ago 
+          {{  publishDate | dateFormat('MMM D, YYYY') }}
         </span>
-        <span class="meta__item"> 
+        <div class="meta__item">
           <Icon :icon="'heart'" />
-          17
-        </span>
+          <span class="fb-comments-count" :data-href="'https://epicureanfox.com/articles/'+post.slug"></span>
+        </div>
+        <!-- <FaveIcon @fave="fave" :filled="faved" :count="faveCount" /> -->
+        
       </div>
       <div class="article__image">
         <ImageTag :image="post.image || false" :class="''"/>
@@ -48,11 +50,18 @@
           
         </div>
       </div>
+      <div class="fb-comments" 
+        :data-href="'https://epicureanfox.com/articles/'+post.slug" 
+        data-width="475" 
+        data-numposts="5"
+        data-lazy="true"
+        ></div>
     </div>
+ 
   </article>
 
   <section class="more">
-    <PageHeader :post='{title: "More "+taxonomy.title + " recipes", subheader: "\<a href=\"/articles/category/"+taxonomy.slug+"\">View All</a>"}' />
+    <PageHeader :isHeader="false" :post='{title: "More "+taxonomy.title + " Recipes", subheader: "\<a href=\"/articles/category/"+taxonomy.slug+"\">View All</a>"}' />
     <div class="post-grid post-grid--list">
       <CardHorizontal :post="post" v-for="post of taxonomy.posts" :key="post.slug" />
     </div>
@@ -63,6 +72,9 @@
       </div>
     </div>
   </section>
+
+  <div id="fb-root"></div>
+
 </div>
 </template>
 
@@ -96,6 +108,9 @@
           .icon {
             margin-right: .25rem;
           }
+          .icon--heart {
+            cursor: pointer;
+          }
         }
       }
     }
@@ -107,12 +122,23 @@
       //border-top: 1px solid $medium;
       padding: 1rem 0 0;
       margin: 2rem 0 1rem;
+      .fb-comments {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 3rem;
+      }
     }
   }
 </style>
 
 
 <script>
+
+import Vue from 'vue';
+import VueFilterDateFormat from '@vuejs-community/vue-filter-date-format';
+
+Vue.use(VueFilterDateFormat);
+
 export default {
   async asyncData({ $content, params, error }) {
     let post;
@@ -132,8 +158,22 @@ export default {
     return {
       post,
       taxonomy,
-      categories
+      categories,
+      faved: false,
+      faveCount: 2
     };
+  },
+  computed: {
+    publishDate(){
+      let pubDate = new Date(this.post.createdAt);
+      return pubDate //pubDate;
+    }
+  },
+  methods: {
+    fave() {
+      this.faveCount = this.faved === true ? this.faveCount - 1 : this.faveCount + 1;
+      this.faved = this.faved === true ? false : true;
+    }
   },
   head() {
     let post = this.post;
@@ -168,7 +208,17 @@ export default {
       ],
       bodyAttrs: {
         class: 'template-article'
-      }
+      },
+      script: [
+        {  
+          hid:'fb-comments', 
+          src: 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v10.0&appId=124911242996881&autoLogAppEvents=1', 
+          async: true,
+          defer: true,
+          nonce: 'ens9xzQq',
+          crossorigin: 'anonnymous'
+        }
+      ]
     }
   }
 };

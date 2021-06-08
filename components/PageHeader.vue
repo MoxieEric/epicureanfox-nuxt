@@ -1,10 +1,14 @@
 <template>
-    <header class="page-header">
-      <h1 class="page-header__title" v-if="post.title">
+    <component class="page-header" :is="isHeader ? 'header' : 'div'" >
+      <component class="page-header__title" v-if="post.title" :is="isHeader ? 'h1' : 'h2'">
         {{post.title}}
-      </h1>
-      <h2 class="page-header__subheader" v-if="post.subheader" v-html="post.subheader"></h2>
-    </header>
+      </component>
+      
+      <component 
+        :is="isHeader ? 'h2' : 'div'"
+        class="page-header__subheader" 
+        v-if="post.subheader" v-html="post.subheader"></component>
+    </component>
 </template>
 
 <style lang="scss">
@@ -27,6 +31,10 @@
 export default {
     name: "PageHeader",
     props: {
+        isHeader: {
+            type: Boolean,
+            default: true
+        },
         post: {}
     }
 }

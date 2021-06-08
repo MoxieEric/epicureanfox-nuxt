@@ -16,6 +16,7 @@
     "@nuxtjs/style-resources": "^1.0.0",
     "@nuxtjs/tailwindcss": "^4.0.2",
     "@tailwindcss/postcss7-compat": "^2.0.4",
+    "@vuejs-community/vue-filter-date-format": "^1.6.3",
     "autoprefixer": "^9",
     "bootstrap": "^4.6.0",
     "bootstrap-vue": "^2.21.2",
