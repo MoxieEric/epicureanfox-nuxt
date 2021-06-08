@@ -15,7 +15,7 @@ category: Dinner
 * ¼ cup extra-virgin olive oil, plus more for drizzling
 * 2 medium leeks, white and pale green parts only, tough outer layers removed, sliced into ½"-thick rounds
 * 4 garlic cloves, thinly sliced
-* 4coil-packed anchovy fillets
+* 4 oil-packed anchovy fillets
 * Kosher salt, freshly ground pepper
 * 1 2"-wide strip lemon zest
 * ½ tsp. crushed red pepper flakes
@@ -50,3 +50,5 @@ Using a slotted spoon, transfer kale leaves to a blender and add parsley and pis
 Ladle soup into bowls; top with feta and drizzle with oil. Serve with toast.
 
 Original recipe [here](https://www.bonappetit.com/recipe/spring-y-brothy-beans)
+
+Created by Andy Baraghani
