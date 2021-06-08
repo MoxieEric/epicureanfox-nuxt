@@ -37,12 +37,12 @@
                 color: $black;
             }
         }
-        &__nav {
+        // &__nav {
 
-        }
-        &__nav-links {
+        // }
+        // &__nav-links {
             
-        }
+        // }
         &__nav-item {
             display: inline-block;
             padding: .125rem .5rem;

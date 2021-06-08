@@ -10,8 +10,11 @@
           {{  publishDate | dateFormat('MMM D, YYYY') }}
         </span>
         <div class="meta__item">
-          <Icon :icon="'heart'" />
-          <span class="fb-comments-count" :data-href="'https://epicureanfox.com/articles/'+post.slug"></span>
+          
+          <Icon :icon="'comments'" />
+          <a href="#comments" title="Leave a Comment">
+            <span class="fb-comments-count" :data-href="'https://epicureanfox.com/articles/'+post.slug"></span>
+          </a>
         </div>
         <!-- <FaveIcon @fave="fave" :filled="faved" :count="faveCount" /> -->
         
@@ -50,7 +53,7 @@
           
         </div>
       </div>
-      <div class="fb-comments" 
+      <div class="fb-comments" id="comments"
         :data-href="'https://epicureanfox.com/articles/'+post.slug" 
         data-width="475" 
         data-numposts="5"
