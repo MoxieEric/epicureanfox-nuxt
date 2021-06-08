@@ -1,6 +1,6 @@
 ---
 title: Spring-y Brothy Beans
-description: Soup, Broth, Beans, Dinner
+description: Fresh spring meal served with crusty bread
 image: https://ucarecdn.com/eec8d7ca-fa50-4071-a2e8-73754e504301/-/crop/1125x1406/0,427/-/preview/-/scale_crop/768x768/smart/IMG_8353.PNG
 order: 0
 date: 2021-06-08T17:04:27.469Z
